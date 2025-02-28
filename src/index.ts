@@ -14,7 +14,7 @@ import Aquafier, {
     LogTypeEmojis,
     FormKeyGraphData
 } from "aquafier-js-sdk";
-import { EthereumTrustManager } from "./eth_trust_manager";
+import { EthereumTrustManager, TrustLevel } from './eth_trust_manager.js';
 
 let acc1Creds = JSON.parse(fs.readFileSync("./credentials/account1.json", "utf-8"))
 let acc2Creds = JSON.parse(fs.readFileSync("./credentials/account2.json", "utf-8"))
@@ -304,6 +304,8 @@ let aquaHandler = new AquaHandler()
 // await aquaHandler.verifyForm("./aquatrees/example-claim.aqua.json", "./aquatrees/example-claim.aqua.json")
 // Attestation verification
 // await aquaHandler.formVerification("./aquatrees/example-claim.aqua.json")
-// await aquaHandler.formVerification("./aquatrees/example-attestation.aqua.json")
-// await aquaHandler.attestationVerification("./aquatrees/example-attestation.aqua.json", "./forms/example-attestation.json",
-//    "./aquatrees/example-claim.aqua.json", "./forms/example-claim.json")
+// await aquaHandler.formVerification("./aquatrees/example-attestation.aqua.json"),
+
+aquaHandler.attestationVerification("./aquatrees/example-attestation.aqua.json", "./forms/example-attestation.json",
+    "./aquatrees/example-claim.aqua.json", "./forms/example-claim.json")
+console.log("Done")

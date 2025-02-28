@@ -5,10 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "tsup", 
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node ./dist/index.cjs",
-    "trust": "npx tsc && node ./dist/eth_trust_manager.js"
+    "dev": "node ./dist/index.js",
+    "trust": "node ./dist/eth_trust_manager.js",
+    "start": "npm run build && npm run dev"
   },
   "author": "",
   "license": "ISC",
