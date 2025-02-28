@@ -209,7 +209,9 @@ function parseArgs(): { command: string, args: string[] } {
 }
 
 function main() {
+    console.log("In to main")
     const { command, args } = parseArgs();
+    console.log(command, args)
     const manager = new EthereumTrustManager("0x1234567890abcdef1234567890abcdef12345678");
 
     switch (command) {
@@ -264,9 +266,6 @@ function main() {
     }
 }
 
-// Run CLI if executed directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-    main();
-}
+main();
 
 export { EthereumTrustManager, TrustLevel };

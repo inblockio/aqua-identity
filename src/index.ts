@@ -279,12 +279,13 @@ class AquaHandler {
 
         // Attester wallet
         let attesterWalletAddress = attestationVerificationInfo.formKeys.find((field: FormKeyGraphData) => field.formKey === "forms_wallet_address")?.content
-        console.log(`Attester wallet address: ${attesterWalletAddress}\n`)
+        console.log(`Attester wallet address: ${attesterWalletAddress}`)
 
         // Wallet address check trust level
 
         let trustManager = new EthereumTrustManager(attesterWalletAddress!!)
-        console.log(trustManager.getTrustLevel(attesterWalletAddress!!))
+        const trustLevel = trustManager.getTrustLevel(attesterWalletAddress!!)
+        console.log(`Trust level for ${attesterWalletAddress}: ${TrustLevel[trustLevel]}`)
 
     }
 

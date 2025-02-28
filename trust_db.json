@@ -8,5 +8,10 @@
     "address": "0x6b2f22390c318107e95c58c90a66afaf7ef06853",
     "trustLevel": 4,
     "endorsements": []
+  },
+  {
+    "address": "0x568a94a8f0f3dc0b245b853bef572075c1df5c50",
+    "trustLevel": 4,
+    "endorsements": []
   }
 ]
