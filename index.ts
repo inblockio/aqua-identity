@@ -299,5 +299,5 @@ let aquaHandler = new AquaHandler()
 // Attestation verification
 // await aquaHandler.formVerification("./aquatrees/example-claim.aqua.json")
 // await aquaHandler.formVerification("./aquatrees/example-attestation.aqua.json")
-await aquaHandler.attestationVerification("./aquatrees/example-attestation.aqua.json", "./forms/example-attestation.json",
-    "./aquatrees/example-claim.aqua.json", "./forms/example-claim.json")
+// await aquaHandler.attestationVerification("./aquatrees/example-attestation.aqua.json", "./forms/example-attestation.json",
+//    "./aquatrees/example-claim.aqua.json", "./forms/example-claim.json")

@@ -1,0 +1,12 @@
+[
+  {
+    "address": "0x1234567890abcdef1234567890abcdef12345678",
+    "trustLevel": 5,
+    "endorsements": []
+  },
+  {
+    "address": "0x6b2f22390c318107e95c58c90a66afaf7ef06853",
+    "trustLevel": 4,
+    "endorsements": []
+  }
+]
