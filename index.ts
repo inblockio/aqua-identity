@@ -14,8 +14,9 @@ import Aquafier, {
     LogTypeEmojis,
     FormKeyGraphData
 } from "aquafier-js-sdk";
-import acc1Creds from "./credentials/account1.json" assert { type: "json" };
-import acc2Creds from "./credentials/account2.json" assert { type: "json" };
+
+let acc1Creds = JSON.parse(fs.readFileSync("./credentials/account1.json", "utf-8"))
+let acc2Creds = JSON.parse(fs.readFileSync("./credentials/account2.json", "utf-8"))
 
 class AquaHandler {
     private aquafier: Aquafier;
@@ -244,7 +245,7 @@ class AquaHandler {
         console.log("\n")
 
         // Testing the identity claim ID
-        let attestationIdentityClaimId = attestationVerificationInfo.formKeys.find(field => field.formKey === "forms_identity_claim_id")?.content
+        let attestationIdentityClaimId = attestationVerificationInfo.formKeys.find((field: FormKeyGraphData) => field.formKey === "forms_identity_claim_id")?.content
         let claimHash = claimVerificationResults?.hash
 
         if (attestationIdentityClaimId === claimHash) {
@@ -262,8 +263,8 @@ class AquaHandler {
             const keyName = commonKeys[i];
 
             console.log(`Form key name: ${keyName.split("forms_")[1]}`)
-            let attestationField = attestationKeys.find(field => field.formKey === keyName)
-            let claimField = claimKeys.find(field => field.formKey === keyName)
+            let attestationField = attestationKeys.find((field: FormKeyGraphData) => field.formKey === keyName)
+            let claimField = claimKeys.find((field: FormKeyGraphData) => field.formKey === keyName)
             if (attestationField && claimField) {
                 let contentIsEqual = attestationField.content === claimField?.content
                 console.log(`${contentIsEqual ? LogTypeEmojis.success : LogTypeEmojis.error} Attestation value: ${attestationField.content} --- Claim value: ${claimField?.content} \n`)
@@ -272,11 +273,11 @@ class AquaHandler {
             }
         }
         // Attestation comment
-        let attestationContext = attestationVerificationInfo.formKeys.find(field => field.formKey === "forms_context")?.content
+        let attestationContext = attestationVerificationInfo.formKeys.find((field: FormKeyGraphData) => field.formKey === "forms_context")?.content
         console.log(`Attestation context:\n${attestationContext}\n`)
 
         // Attester wallet
-        let attesterWalletAddress = attestationVerificationInfo.formKeys.find(field => field.formKey === "forms_wallet_address")?.content
+        let attesterWalletAddress = attestationVerificationInfo.formKeys.find((field: FormKeyGraphData) => field.formKey === "forms_wallet_address")?.content
         console.log(`Attester wallet address: ${attesterWalletAddress}\n`)
 
     }
