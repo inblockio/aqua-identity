@@ -1,0 +1,14 @@
+{
+  "name": "identity-claim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc && node ./dist/index.js",
+    "trust": "npx tsc && node ./dist/eth_trust_manager.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

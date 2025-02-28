@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "outDir": "dist",
+        "strict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+    },
+    "include": [
+        "index.ts",
+        "eth_trust_manager.ts"
+    ]
+}
