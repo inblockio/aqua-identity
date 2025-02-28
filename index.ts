@@ -14,6 +14,7 @@ import Aquafier, {
     LogTypeEmojis,
     FormKeyGraphData
 } from "aquafier-js-sdk";
+import { EthereumTrustManager } from "./eth_trust_manager";
 
 let acc1Creds = JSON.parse(fs.readFileSync("./credentials/account1.json", "utf-8"))
 let acc2Creds = JSON.parse(fs.readFileSync("./credentials/account2.json", "utf-8"))
@@ -279,6 +280,11 @@ class AquaHandler {
         // Attester wallet
         let attesterWalletAddress = attestationVerificationInfo.formKeys.find((field: FormKeyGraphData) => field.formKey === "forms_wallet_address")?.content
         console.log(`Attester wallet address: ${attesterWalletAddress}\n`)
+
+        // Wallet address check trust level
+
+        let trustManager = new EthereumTrustManager(attesterWalletAddress!!)
+        console.log(trustManager.getTrustLevel(attesterWalletAddress!!))
 
     }
 

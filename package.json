@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
+    "build": "tsup", 
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc && node ./dist/index.js",
+    "dev": "node ./dist/index.cjs",
     "trust": "npx tsc && node ./dist/eth_trust_manager.js"
   },
   "author": "",
@@ -14,5 +15,8 @@
   "devDependencies": {
     "@types/node": "^22.13.5",
     "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "tsup": "^8.4.0"
   }
 }
