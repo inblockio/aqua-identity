@@ -1,6 +1,12 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 // Enum for trust levels, mirroring PGP
 enum TrustLevel {
     Unknown = 1,
@@ -209,9 +215,7 @@ function parseArgs(): { command: string, args: string[] } {
 }
 
 function main() {
-    console.log("In to main")
     const { command, args } = parseArgs();
-    console.log(command, args)
     const manager = new EthereumTrustManager("0x1234567890abcdef1234567890abcdef12345678");
 
     switch (command) {
@@ -266,6 +270,11 @@ function main() {
     }
 }
 
-main();
+// Ensure script runs only when executed directly
+if (import.meta.filename === `${process.argv[1]}`) {
+    main();
+}
+
+
 
 export { EthereumTrustManager, TrustLevel };

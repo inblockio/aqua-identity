@@ -12,7 +12,9 @@ import Aquafier, {
     log_success,
     FormVerificationGraphData,
     LogTypeEmojis,
-    FormKeyGraphData
+    FormKeyGraphData,
+    cliYellowfy,
+    log_yellow
 } from "aquafier-js-sdk";
 import { EthereumTrustManager, TrustLevel } from './eth_trust_manager.js';
 
@@ -215,14 +217,14 @@ class AquaHandler {
     public async attestationVerification(attestationAquaTreePath: string, attestationFilePath: string, claimAquaTreePath: string, claimFilePath: string) {
 
         // Verification
-        console.log("Claim verification")
+        log_yellow("\nClaim verification")
         await this.formVerification(claimAquaTreePath)
 
-        console.log("\nAttestation verification")
+        log_yellow("\nAttestation verification")
         await this.formVerification(attestationAquaTreePath)
 
         // Compare value key pairs of claim and attestations to be identical except type, wallet, identiy claim id, comment
-
+        log_yellow("\nIdentity verification")
         const attestationVerificationResults = await this.verifyForm(attestationAquaTreePath, attestationFilePath)
         const claimVerificationResults = await this.verifyForm(claimAquaTreePath, claimFilePath)
 
@@ -242,8 +244,6 @@ class AquaHandler {
 
         let attestationKeys = attestationVerificationInfo.formKeys
         let claimKeys = claimVerificationInfo.formKeys
-
-        console.log("\n")
 
         // Testing the identity claim ID
         let attestationIdentityClaimId = attestationVerificationInfo.formKeys.find((field: FormKeyGraphData) => field.formKey === "forms_identity_claim_id")?.content
@@ -309,4 +309,4 @@ let aquaHandler = new AquaHandler()
 
 aquaHandler.attestationVerification("./aquatrees/example-attestation.aqua.json", "./forms/example-attestation.json",
     "./aquatrees/example-claim.aqua.json", "./forms/example-claim.json")
-console.log("Done")
+// console.log("Done")
