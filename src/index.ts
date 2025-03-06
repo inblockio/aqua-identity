@@ -15,7 +15,7 @@ import Aquafier, {
     FormKeyGraphData,
     cliYellowfy,
     log_yellow
-} from "aquafier-js-sdk";
+} from "aqua-js-sdk";
 import { EthereumTrustManager, TrustLevel } from './eth_trust_manager.js';
 
 let acc1Creds = JSON.parse(fs.readFileSync("./credentials/account1.json", "utf-8"))

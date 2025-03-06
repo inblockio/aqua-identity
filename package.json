@@ -18,6 +18,7 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
+    "aqua-js-sdk": "github:inblockio/aqua-js-sdk",
     "tsup": "^8.4.0"
   }
 }
