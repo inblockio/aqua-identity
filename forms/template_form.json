@@ -1,4 +1,4 @@
-{   "forms_version": "1",
+{   "forms_template_version": "1",
     "forms_template_title": "Identity Claim",
     "forms_template_name": "identity_claim",
     "forms_fields_first_name": "{\"id\":\"6f13c962-cfce-46c2-9f12-796cd0952cab\",\"label\":\"First Name\",\"name\":\"first_name\",\"type\":\"text\",\"required\":true}",
